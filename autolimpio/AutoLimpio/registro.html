@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Complejo deportivo" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Grupo 1" />
+    <meta name="keywords" content="Complejo deportivo, deportes, gimnasio, spinning, running, zumba" />
+
+    <link rel="stylesheet" href="styles/styles.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="bootstrap-5.1.3-dist/css/bootstrap.css">
+</head>
+<script>
+    $(function() {
+        // Elementos
+        const rut = $('#txtRut');
+        const nombre = $('#txtNombre');
+        const apellido = $('#txtApellido');
+        const edad = $('#txtEdad');
+        const domicilio = $('#txtDomicilio')
+        const comuna = $('#exampleFormControlSelect1');
+        const verificador = $('#exampleForControlVerificador');
+
+        //Elementos Vehiculo
+        const tipoAuto = $('#txtTipoAuto');
+        const marca = $('#txtMarca');
+        const modelo = $('#txtModelo');
+        const año = $('#txtAño');
+        const revTecnica = $('#revTecnica');
+        const tipoServicio = $('#tipoServicio');
+        const operador = $('#operador');
+
+        // Mensajes de error Usuarui
+        const errorRut = $('#errorTextRut');
+        const errorNombre = $('#errorTextNombre');
+        const errorApellido = $('#errorTextApellido');
+        const errorEdad = $('#errorEdad');
+        const errorDomicilio = $('#errorTextDomicilio');
+        const errorComuna = $('#errorComuna');
+        const errorVerificador = $('#errorTextVerificador');
+
+        //Mensaje de error Automovil
+        const errorTipoAuto = $('#errorTipoVehiculo');
+        const errorMarca = $('#errorTextMarca');
+        const errorModelo = $('#errorTextModelo');
+        const errorAño = $('#errorTextAño');
+        const errorRevTecnica = $('#errorTipoRevTecnica');
+        const errorOperador = $('#errorTipoOperador');
+        const errorServicio = $('#errorServicio');
+
+
+        $("#botonEnviar").click(function() {
+            const valorNombre = nombre.val();
+            if (!validarValores(valorNombre)) {
+                alert("Mensaje enviado");
+            }
+        });
+        rut.change(function() {
+            errorRut.text("");
+            rut.removeClass("border border-danger");
+        });
+        nombre.change(function() {
+            errorNombre.text("");
+            nombre.removeClass("border border-danger");
+        });
+
+        apellido.change(function() {
+            errorApellido.text("");
+            apellido.removeClass("border border-danger");
+        });
+        edad.change(function() {
+            errorEdad.text("");
+            edad.removeClass("border border-danger");
+        });
+        domicilio.change(function() {
+            errorDomicilio.text("");
+            domicilio.removeClass("border border-danger");
+        });
+        domicilio.change(function() {
+            errorComuna.text("");
+            comuna.removeClass("border border-danger");
+        });
+        verificador.change(function() {
+            errorVerificador.text("");
+            verificador.removeClass("border border-danger");
+        });
+
+        //verificacion vacio auto
+
+        tipoAuto.change(function() {
+            errorTipoAuto.text("");
+            tipoAuto.removeClass("border border-danger");
+        });
+        marca.change(function() {
+            errorMarca.text("");
+            marca.removeClass("border border-danger");
+        });
+        modelo.change(function() {
+            errorModelo.text("");
+            modelo.removeClass("border border-danger");
+        });
+        año.change(function() {
+            errorAño.text("");
+            año.removeClass("border border-danger");
+        });
+        revTecnica.change(function() {
+            errorRevTecnica.text("");
+            revTecnica.removeClass("border border-danger");
+        });
+        tipoServicio.change(function() {
+            errorServicio.text("");
+            tipoAuto.removeClass("border border-danger");
+        });
+
+        operador.change(function() {
+            errorOperador.text("");
+            operador.removeClass("border border-danger");
+        });
+
+
+        function validarValores(valorNombreFuncion) {
+            let isError = true;
+            if (valorNombreFuncion == null || valorNombreFuncion == '') {
+                rut.addClass("border border-danger");
+                errorRut.text("Este valor es requerido.");
+            }
+            if (valorNombreFuncion == null || valorNombreFuncion == '') {
+                nombre.addClass("border border-danger");
+                errorNombre.text("Este valor es requerido.");
+            }
+            if (valorNombreFuncion == null || valorNombreFuncion == '') {
+                apellido.addClass("border border-danger");
+                errorApellido.text("Este valor es requerido.");
+            }
+            if (valorNombreFuncion == null || valorNombreFuncion == '') {
+                edad.addClass("border border-danger");
+                errorEdad.text("Este valor es requerido.");
+            }
+            if (valorNombreFuncion == null || valorNombreFuncion == '') {
+                domicilio.addClass("border border-danger");
+                errorDomicilio.text("Este valor es requerido.");
+            }
+            if (valorNombreFuncion == null || valorNombreFuncion == '') {
+                comuna.addClass("border border-danger");
+                errorComuna.text("Este valor es requerido.");
+            }
+            if (valorNombreFuncion == null || valorNombreFuncion == '') {
+                verificador.addClass("border border-danger");
+                errorVerificador.text("Este valor es requerido.");
+            }
+
+            //validacion automovil datos del
+
+            if (valorNombreFuncion == null || valorNombreFuncion == '') {
+                tipoAuto.addClass("border border-danger");
+                errorTipoAuto.text("Este valor es requerido.");
+            }
+            if (valorNombreFuncion == null || valorNombreFuncion == '') {
+                marca.addClass("border border-danger");
+                errorMarca.text("Este valor es requerido.");
+            }
+            if (valorNombreFuncion == null || valorNombreFuncion == '') {
+                modelo.addClass("border border-danger");
+                errorModelo.text("Este valor es requerido.");
+            }
+            if (valorNombreFuncion == null || valorNombreFuncion == '') {
+                año.addClass("border border-danger");
+                errorAño.text("Este valor es requerido.");
+            }
+            if (valorNombreFuncion == null || valorNombreFuncion == '') {
+                revTecnica.addClass("border border-danger");
+                errorRevTecnica.text("Este valor es requerido.");
+            }
+            if (valorNombreFuncion == null || valorNombreFuncion == '') {
+                tipoServicio.addClass("border border-danger");
+                errorServicio.text("Este valor es requerido.");
+            }
+            if (valorNombreFuncion == null || valorNombreFuncion == '') {
+                operador.addClass("border border-danger");
+                errorOperador.text("Este valor es requerido.");
+            }
+            if (valorNombreFuncion.length > 0) {
+                isError = false;
+            }
+
+            return isError;
+        }
+
+    });
+</script>
+
+<body>
+    <section>
+
+        <nav class="navbar navbar-dark navbar-expand-lg bg-dark fixed-top">
+            <a class="navbar-brand" href="#"></a>
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="img/white-car-icon-png-5.png" id="logo">
+                </a>
+                <a class="navbar-brand mb-0 h1" href=""></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav w-100 justify-content-end" id="menu">
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="historia.html">Historia</a>
+                        </li>
+                        <li class="nav-itemIndex">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+
+                        <li class="nav-itemRegistro">
+                            <a class="nav-link" href="registro.html">Registro</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+        </nav>
+    </section>
+    <section>
+    </section>
+    <br>
+    <br>
+    <br>
+
+    <div class="carousel slide" id="carouselExampleCaptions" data-bs-ride="carousel">
+        <br>
+        <br>
+
+
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="img/picauto01.png" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="img/picauto02.png" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="img/Captura.png" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                </div>
+            </div>
+
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <div class="col-12 col-sm-6">
+
+        <div id="errorTxtNombre" class="text fs-6 text-danger"></div>
+    </div>
+    <h1>Registro Usuario</h1>
+
+    <section class="modal-body">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6">
+                <div class="mb-3">
+                    <label for="txtRut" class="form-label">Rut</label>
+                    <input type="number" maxlength="12" placeholder="Ej:12.222.222" class="form-control" oninput="if(this.value.length > this.maxLength) 
+                    this.value = this.value.slice(0, this.maxLength);" /><i>(Máximo 8 dígitos)</i>
+                    <div id="errorTextRut" class="text fs-6 text-danger"></div>
+
+                </div>
+
+                <div class="mb-3">
+                    <label for="txtNombre" class="form-label">Nombres</label>
+                    <input type="text" class="form-control" id="txtNombre" maxlength="30" placeholder="Ej: Roberto" oninput="if(this.value.length > this.maxLength) 
+                    this.value = this.value.slice(0, this.maxLength);" onchange="onLimpiarInput('txtNombre') ">
+
+                    <div id="errorTextNombre" class="text fs-6 text-danger"></div>
+
+                </div>
+                <div class="mb-3">
+                    <label for="txtApellido" class="form-label">Apellido</label>
+                    <input type="text" class="form-control" id="txtApellido" placeholder="Ej: Soto Martínez" maxlength="30" oninput="if(this.value.length > this.maxLength) 
+                    this.value = this.value.slice(0, this.maxLength);" onchange="onLimpiarInput('txtApellido')">
+                    <div id="errorTextApellido" class="text fs-6 text-danger"></div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Selecciona tu comuna</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                      <option>Cunco</option>
+                      <option>Lonquimay</option>
+                      <option>Pucón</option>
+                      <option>Vilcun</option>
+                      <option>Melipeuco</option>
+                    </select>
+                    <div id="errorComuna" class="text fs-6 text-danger"></div>
+
+                </div>
+                <br>
+
+                <div class="mb-3">
+                    <label for="txtDomicilio" class="form-label">Domicilio</label>
+                    <input type="email" class="form-control" id="txtDomicilio" placeholder="Ej: Calle falsa 123" maxlength="80" oninput="if(this.value.length > this.maxLength) 
+                    this.value = this.value.slice(0, this.maxLength);" onchange="onLimpiarInput('txtDomicilio')">
+                    <div id="errorTextDomicilio" class="text fs-6 text-danger"></div>
+                </div>
+
+                </datalist>
+
+            </div>
+
+            <div class="col-12 col-sm-12 col-md-6">
+                <div class="form-group">
+                    <label for="exampleFormControlVerficador">Selecciones Digito Verificador</label>
+                    <select class="form-control" style="width: 50px; " id="exampleFormControlSelect1">
+                      <option>0</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                      <option>k</option>
+                    </select>
+                    <div id="errorTextVerificador" class="text fs-6 text-danger"></div>
+
+                </div>
+
+
+            </div>
+        </div>
+        </div>
+        <button type="button" style="width: 100px; position: absolute;top: 90%" class="btn btn-primary btn-lg" id="botonEnviar">Enviar</button>
+        </div>
+    </section>
+
+    <section>
+        <h1>Registro vehiculo</h1>
+
+        <section class="modal-body">
+
+
+
+
+                        </form>
+
+                        <div id="errorTextMarca" class="text fs-6 text-danger"></div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Selecione el tipo de vehiculo</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option>Furgon</option>
+                            <option>Camioneta</option>
+                            <option>Automovil</option>
+                            <option>Moto</option>
+                            <option>Camion</option>
+                        </select>
+                        <div id="errorTipoVehiculo" class="text fs-6 text-danger"></div>
+
+                    </div>
+                </div>
+                <label for="txtMarca" class="form-label">Marca</label>
+                <input type="text" class="form-control" id="txtMarca" placeholder="Suzuki, Hyundai, Nissan, etc.">
+               
+
+            </div>
+
+                    <div class="mb-3">
+                        <label for="txtModelo" class="form-label">Modelo</label>
+                        <input type="text" class="form-control" id="txtModelo" placeholder="Ingrese el modelo del vehículo" maxlength="20" oninput="if(this.value.length > this.maxLength) 
+                        this.value = this.value.slice(0, this.maxLength);" onchange="onLimpiarInput('txtModelo') ">
+                        <div id="errorTextModelo" class="text fs-6 text-danger"></div>
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="txtAño" class="form-label">Año</label>
+                        <input type="number" class="form-control" id="txtAño" placeholder="Ej: 2018" maxlength="4" oninput="if(this.value.length > this.maxLength) 
+                        this.value = this.value.slice(0, this.maxLength);" onchange="onLimpiarInput('txtAño')">
+                        <div id="errorTextAño" class="text fs-6 text-danger"></div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="revTecnica">Revision Tecnica al dia</label>
+                        <select class="form-control" id="exampleFormControlRevTecnica">
+                            <option>Si</option>
+                            <option>No</option>
+                        </select>
+                        <div id="errorTipoRevTecnica" class="text fs-6 text-danger"></div>
+
+                    </div>
+
+                 
+                    <br>
+
+                    </datalist>
+
+                </div>
+
+                <div class="col-12 col-sm-12 col-md-6">
+
+                    <label for="tipoServicio">Seleecione el tipo de servicio (Puede seleccionar ambos)</label><br>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                        <label class="form-check-label" for="inlineCheckbox1">Lavado exterior $7000</label>
+                    </div><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                        <label class="form-check-label" for="inlineCheckbox2">Lavado interior $5000</label>
+                    </div><br>
+                    <div id="errorServicio" class="text fs-6 text-danger"></div>
+
+
+                    <div class="form-group">
+                        <label for="operador">Seleccione operador</label>
+                        <select class="form-control" id="exampleFormControlRevTecnica">
+                            <option>Pedro Larraín</option>
+                            <option>Juan Oyarce</option>
+                            <option>Mariana Fonseca</option>
+                            <option>Leonel Cariaga</option>
+                        </select>
+                        <div id="errorTipoOperador" class="text fs-6 text-danger"></div>
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="txtFechaEntrega" class="form-label">Fecha de la entrega del vehiculo</label>
+                        <input type="date" class="form-control" id="txtFechaEntrega" >
+                       
+    
+                      </div>
+                      <div class="mb-3">
+                      <label for="txtHoraEntrega" class="form-label">Hora de la entrega del vehiculo</label>
+                      <input type="time" class="form-control" id="txtHoraEntrega" >
+                     
+  
+                      </div>
+
+                </div>
+
+
+            </div>
+            <button type="button" id="botonEnviar">Enviar</button>
+            </div>
+
+        </section>
+    </section>
+
+    <br>
+    <br>
+
+
+</body>
+<section>
+    <footer>
+        <br>
+        <br>
+        <br>
+        <br>
+
+
+        <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+
+
+
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+            © 2022 Copyright: Clase Full Stack Java-2022
+            <a class="text-dark" href=""></a>
+
+        </div>
+
+    </footer>
+
+
+
+</html>
